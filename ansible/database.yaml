@@ -16,4 +16,3 @@
       target: /home/vagrant/sync/demo-app/demo-app.sql
       login_password: ""
       login_user: root
-      #login_host: "{{ db_host }}"

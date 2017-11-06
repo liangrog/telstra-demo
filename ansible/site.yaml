@@ -3,11 +3,11 @@
   become: true
   become_method: sudo
   gather_facts: false
-  #  tasks:
-  #- name: server update 
-  #  yum: name=* state=latest
-  #  tags: 
-  #  - packages
+  tasks:
+  - name: server update 
+    yum: name=* state=latest
+    tags: 
+    - packages
 
-  #- import_playbook: database.yaml
+- import_playbook: database.yaml
 - import_playbook: webserver.yaml
