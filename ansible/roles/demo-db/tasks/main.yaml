@@ -1,0 +1,33 @@
+---
+
+- name: create demo database
+  mysql_db: 
+    name: "{{ db_name }}"
+    state: present
+  tags: 
+  - configure
+
+# Make sure we have the user up to date
+- name: remove demo user
+  mysql_user: 
+    name: "{{ db_user_name }}" 
+    host: "{{ db_allow_host }}"
+    state: absent
+  tags: 
+  - configure
+
+- debug: msg="mysql demo DB credentials == user:{{ db_user_name }} pass:{{ db_user_pass }} =="
+  tags: 
+  - configure
+
+- name: create demo user
+  mysql_user: 
+    name: "{{ db_user_name }}" 
+    password: "{{ db_user_pass }}" 
+    priv: "{{ db_name }}.*:ALL" 
+    host: "{{ db_allow_host }}"
+    state: present 
+    update_password: always
+  tags: 
+  - configure
+   

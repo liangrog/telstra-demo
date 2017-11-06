@@ -1,0 +1,40 @@
+---
+- name: install docker
+  yum: name={{ item }} state=latest
+  with_items:
+  - yum-utils
+  - device-mapper-persistent-data
+  - lvm2
+  - docker
+  - epel-release
+  tags:
+  - packages
+
+- name: install pip
+  yum: name={{ item }} state=latest
+  with_items:
+  - python-pip
+  - mysql-devel
+  - python-devel
+  tags:
+  - packages
+
+- name: Pip package installing
+  command: pip install --upgrade {{ item }}
+  with_items:
+  - docker-compose
+  tags:
+  - packages
+
+- name: start dockerd server
+  service: name=docker state=started enabled=yes
+
+  #- name: install docker-compose
+  #command: sudo curl -L https://github.com/docker/compose/releases/download/1.17.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+  #tags:
+  #- packages
+
+  #- name: make docker-compose executable
+  #command: chmod +x /usr/local/bin/docker-compose
+  #tags:
+  #- packages

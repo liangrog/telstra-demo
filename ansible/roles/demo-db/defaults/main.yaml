@@ -1,0 +1,6 @@
+---
+db_name: demo-app
+db_host: localhost
+db_user_name: dbuser
+db_user_pass: dbpass
+db_allow_host: localhost

@@ -1,0 +1,9 @@
+---
+#- name: run simple web app
+#  command: cd /home/vagrant/sync/demo-app/ && docker-compose up -d
+#  tags:
+#  - configuration
+- name: run simple web app
+  docker_service:
+    project_src: /home/vagrant/sync/demo-app/ 
+    state: present

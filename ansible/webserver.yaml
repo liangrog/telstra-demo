@@ -1,0 +1,38 @@
+---
+- hosts: webserver
+  become: true
+  become_method: sudo
+  vars_files:
+    - host_vars/demo-db.yaml
+  roles:
+  - docker-utils
+  - web-app
+  tasks:
+  - name: add db host info to env
+    lineinfile: 
+      path: /root/.bashrc 
+      line: "export DB_HOST={{ db_host }}" 
+      regexp: '^export DB_HOST\s' 
+      state: present
+
+  - name: add db name info to env
+    lineinfile: 
+      path: /root/.bashrc 
+      line: "export DB_NAME={{ db_name }}" 
+      regexp: '^export DB_NAME\s'
+      state: present
+
+  - name: add db user info to env
+    lineinfile: 
+      path: /root/.bashrc 
+      line: "export DB_USER_NAME={{ db_user_name }}" 
+      regexp: '^export DB_USER_NAME\s'
+      state: present
+
+  - name: add db pass info to env
+    lineinfile: 
+      path: /root/.bashrc 
+      line: "export DB_USER_PASS={{ db_user_pass }}" 
+      regexp: '^export DB_USER_PASS\s' 
+      state: present
+

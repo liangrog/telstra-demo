@@ -1,0 +1,28 @@
+---
+- name: install mysql server
+  yum: name={{ item }} state=latest
+  with_items:
+  - epel-release
+  - mariadb-server
+  - mariadb
+  tags: 
+  - packages
+
+- name: install pip
+  yum: name={{ item }} state=latest
+  with_items:
+  - python-pip
+  - mysql-devel
+  - python-devel
+  tags: 
+  - packages
+
+- name: Install mysql-python
+  command: pip install mysql-python
+  tags:
+  - packages
+
+- name: start mariadb server
+  service: name=mariadb state=started enabled=yes
+  tags:
+  - service

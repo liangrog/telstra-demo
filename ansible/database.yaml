@@ -1,0 +1,19 @@
+---
+- hosts: database
+  become: true
+  become_method: sudo
+  gather_facts: false
+  vars_files:
+  - host_vars/demo-db.yaml
+  roles:
+  - mariadb
+  - demo-db
+  tasks:
+  - name: load demo database
+    mysql_db:
+      name: "{{ db_name }}"
+      state: import
+      target: /home/vagrant/sync/demo-app/demo-app.sql
+      login_password: ""
+      login_user: root
+      #login_host: "{{ db_host }}"
