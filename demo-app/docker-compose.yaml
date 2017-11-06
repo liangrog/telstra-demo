@@ -1,0 +1,13 @@
+---
+version: '2'
+services:
+  telstra-demo-app:
+    image: liangrog/telstra-demo-app
+    ports:
+      - "8080:8080"
+    network_mode: "host"
+    environment:
+      DB_HOST: 192.168.51.4 
+      DB_NAME: demo-app
+      DB_USER_NAME: db-user
+      DB_USER_PASS: db-pass
