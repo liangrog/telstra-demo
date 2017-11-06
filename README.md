@@ -57,7 +57,7 @@ Architeture:
 There are three VMs in this example:
 
 - Ansible Control which works as the provisioning server using Ansible
-- Web server. It has a simple web app runs in a docker container, which listens to incoming request via port `8080` then serve it with result from query to a table in the mysql server
+- Web server. It has a simple web app runs in a docker container (original codes are in demo-app folder whereas the docker image hosted in https://hub.docker.com/r/liangrog/telstra-demo-app/), which listens to incoming request via port `8080` then serve it with result from query to a table in the mysql server
 - Mysql server runs mysql and has a demo database contains one table that has a list of movies
 
 Provisioning work flow:
