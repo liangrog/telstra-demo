@@ -19,7 +19,7 @@ Simple run below command on your console:
 
     $ vagrant up
 
-After all the process is done, you can visit the result on your local browser using address `http://localhost:8333`
+After all the process is done, you can visit the result on your local browser using address `http://localhost:8333`. It will show a list of movies which is the outcome of querying mysql server.
 
 Note: I chose to use port `8333` instead of port `80` from the requirement to avoid port conflict on the host machine because `80` is usually occupied.
 
