@@ -4,6 +4,8 @@ This repo contains configurationf files and codes providing an example of provis
 
 The original requirment is [here](requirement.md)
 
+Disclaimer: This is not a secure setup. It is only for test and demo purpose.
+
 Prerequisite
 ----
 You will need to have Vagrant and Virturalbox installed in your host machine. You can find the details of installation below:
@@ -19,7 +21,7 @@ Simple run below command on your console:
 
 After all the process is done, you can visit the result on your local browser using address `http://localhost:8333`
 
-Note: I chose to use port `8333` instead of requirement of port `80` to avoid port conflict on the host machine.
+Note: I chose to use port `8333` instead of port `80` from the requirement to avoid port conflict on the host machine because `80` is usually occupied.
 
 Overview
 ----
