@@ -20,7 +20,6 @@ func dbquery(w http.ResponseWriter) {
 	dbPass := os.Getenv("DB_USER_PASS")
 
 	conStr := dbUser + ":" + dbPass + "@tcp(" + dbHost + ":3306)/" + dbName
-	log.Println(conStr)
 	db, err := sql.Open("mysql", conStr)
 	if err != nil {
 		panic(err)
