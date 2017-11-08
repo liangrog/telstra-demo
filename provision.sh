@@ -8,6 +8,7 @@ pip install mysql-python
 # SSH keys
 cp /home/vagrant/sync/ssh_keys/* /home/vagrant/.ssh/
 chown vagrant:vagrant /home/vagrant/.ssh/*
+chmod /home/vagrant/.ssh/*
 
 # Provision
 runuser -l vagrant -c 'cd /home/vagrant/sync/ansible/ && ansible-playbook -v -i hosts site.yaml' | sed 's/\\n/\n/g'
