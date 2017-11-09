@@ -1,4 +1,4 @@
-Telstra Test Demo
+Test Demo
 ====
 This repo contains configurationf files and codes providing an example of provisioning a  multi-tier server architecture environment using Vagrant, Virturalbox, Ansible and Docker.
 
